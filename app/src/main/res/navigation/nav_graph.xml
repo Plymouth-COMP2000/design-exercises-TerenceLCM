@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login_fragment">
+
+    <!-- ==================== LOGIN SCREEN ==================== -->
+
+    <!-- Login Screen -->
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.restaurantapp.ui.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        
+        <action
+            android:id="@+id/action_login_to_guest_home"
+            app:destination="@id/guest_home_fragment"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true" />
+        
+        <action
+            android:id="@+id/action_login_to_staff_home"
+            app:destination="@id/staff_home_fragment"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- ==================== GUEST SCREENS ==================== -->
+
+    <!-- Guest Home Screen -->
+    <fragment
+        android:id="@+id/guest_home_fragment"
+        android:name="com.example.restaurantapp.ui.guest.GuestHomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_guest_home">
+        
+        <action
+            android:id="@+id/action_guest_home_to_menu_item_detail"
+            app:destination="@id/menu_item_detail_fragment" />
+        
+        <action
+            android:id="@+id/action_guest_home_to_reservation"
+            app:destination="@id/reservation_fragment" />
+        
+        <action
+            android:id="@+id/action_guest_home_to_notifications"
+            app:destination="@id/notifications_fragment" />
+    </fragment>
+
+    <!-- Menu Item Detail Screen -->
+    <fragment
+        android:id="@+id/menu_item_detail_fragment"
+        android:name="com.example.restaurantapp.ui.guest.MenuItemDetailFragment"
+        android:label="Menu Item Details"
+        tools:layout="@layout/fragment_menu_item_detail">
+        
+        <argument
+            android:name="menuItemId"
+            app:argType="string"
+            android:defaultValue="" />
+        
+        <argument
+            android:name="menuItemName"
+            app:argType="string"
+            android:defaultValue="" />
+        
+        <argument
+            android:name="menuItemPrice"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        
+        <argument
+            android:name="menuItemImageResId"
+            app:argType="integer" />
+        
+        <argument
+            android:name="menuItemDescription"
+            app:argType="string"
+            android:defaultValue="" />
+        
+        <action
+            android:id="@+id/action_menu_item_detail_to_guest_home"
+            app:destination="@id/guest_home_fragment"
+            app:popUpTo="@id/guest_home_fragment"
+            app:popUpToInclusive="false" />
+        
+        <action
+            android:id="@+id/action_menu_item_detail_to_reservation"
+            app:destination="@id/reservation_fragment" />
+    </fragment>
+
+    <!-- Reservation Screen -->
+    <fragment
+        android:id="@+id/reservation_fragment"
+        android:name="com.example.restaurantapp.ui.guest.ReservationFragment"
+        android:label="Make Reservation"
+        tools:layout="@layout/fragment_reservation">
+        
+        <argument
+            android:name="menuItemId"
+            app:argType="string"
+            android:defaultValue="" />
+        
+        <action
+            android:id="@+id/action_reservation_to_reservation_confirmation"
+            app:destination="@id/reservation_confirmation_fragment" />
+        
+        <action
+            android:id="@+id/action_reservation_to_guest_home"
+            app:destination="@id/guest_home_fragment"
+            app:popUpTo="@id/guest_home_fragment"
+            app:popUpToInclusive="false" />
+        
+        <action
+            android:id="@+id/action_reservation_to_edit_reservation"
+            app:destination="@id/guest_edit_reservation_fragment" />
+        
+        <action
+            android:id="@+id/action_reservation_to_cancel_reservation"
+            app:destination="@id/guest_cancel_reservation_fragment" />
+    </fragment>
+
+    <!-- Reservation Confirmation Screen -->
+    <fragment
+        android:id="@+id/reservation_confirmation_fragment"
+        android:name="com.example.restaurantapp.ui.guest.ReservationConfirmationFragment"
+        android:label="Reservation Confirmed"
+        tools:layout="@layout/fragment_reservation_confirmation">
+        
+        <argument
+            android:name="reservationId"
+            app:argType="string" />
+        
+        <argument
+            android:name="reservationDate"
+            app:argType="string" />
+        
+        <argument
+            android:name="reservationTime"
+            app:argType="string" />
+        
+        <argument
+            android:name="guestName"
+            app:argType="string" />
+        
+        <argument
+            android:name="numberOfGuests"
+            app:argType="integer"
+            android:defaultValue="1" />
+        
+        <action
+            android:id="@+id/action_reservation_confirmation_to_guest_home"
+            app:destination="@id/guest_home_fragment"
+            app:popUpTo="@id/guest_home_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Edit Reservation Screen -->
+    <fragment
+        android:id="@+id/guest_edit_reservation_fragment"
+        android:name="com.example.restaurantapp.ui.guest.GuestEditReservationFragment"
+        android:label="Edit Reservation"
+        tools:layout="@layout/fragment_guest_edit_reservation">
+        
+        <action
+            android:id="@+id/action_edit_reservation_to_reservation"
+            app:destination="@id/reservation_fragment"
+            app:popUpTo="@id/reservation_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- Cancel Reservation Screen -->
+    <fragment
+        android:id="@+id/guest_cancel_reservation_fragment"
+        android:name="com.example.restaurantapp.ui.guest.GuestCancelReservationFragment"
+        android:label="Cancel Reservation"
+        tools:layout="@layout/fragment_guest_cancel_reservation">
+        
+        <action
+            android:id="@+id/action_cancel_reservation_to_reservation"
+            app:destination="@id/reservation_fragment"
+            app:popUpTo="@id/reservation_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- ==================== STAFF SCREENS ==================== -->
+
+    <!-- Staff Home Screen -->
+    <fragment
+        android:id="@+id/staff_home_fragment"
+        android:name="com.example.restaurantapp.ui.staff.StaffHomeFragment"
+        android:label="Staff Dashboard"
+        tools:layout="@layout/fragment_staff_home">
+        
+        <action
+            android:id="@+id/action_staff_home_to_reservation_list"
+            app:destination="@id/staff_reservation_list_fragment" />
+        
+        <action
+            android:id="@+id/action_staff_home_to_menu_management"
+            app:destination="@id/staff_menu_management_fragment" />
+        
+        <action
+            android:id="@+id/action_staff_home_to_notifications"
+            app:destination="@id/notifications_fragment" />
+    </fragment>
+
+    <!-- Staff Reservation List Screen -->
+    <fragment
+        android:id="@+id/staff_reservation_list_fragment"
+        android:name="com.example.restaurantapp.ui.staff.StaffReservationListFragment"
+        android:label="Reservations"
+        tools:layout="@layout/fragment_staff_reservation_list">
+        
+        <action
+            android:id="@+id/action_reservation_list_to_staff_home"
+            app:destination="@id/staff_home_fragment"
+            app:popUpTo="@id/staff_home_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- Staff Menu Management Screen -->
+    <fragment
+        android:id="@+id/staff_menu_management_fragment"
+        android:name="com.example.restaurantapp.ui.staff.StaffMenuManagementFragment"
+        android:label="Menu Management"
+        tools:layout="@layout/fragment_staff_menu_management">
+        
+        <action
+            android:id="@+id/action_menu_management_to_edit_menu_item"
+            app:destination="@id/edit_menu_item_fragment" />
+        
+        <action
+            android:id="@+id/action_menu_management_to_staff_home"
+            app:destination="@id/staff_home_fragment"
+            app:popUpTo="@id/staff_home_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- Edit Menu Item Screen -->
+    <fragment
+        android:id="@+id/edit_menu_item_fragment"
+        android:name="com.example.restaurantapp.ui.staff.EditMenuItemFragment"
+        android:label="Edit Menu Item"
+        tools:layout="@layout/fragment_edit_menu_item">
+        
+        <argument
+            android:name="menuItemId"
+            app:argType="string"
+            android:defaultValue="" />
+        
+        <argument
+            android:name="isNewItem"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        
+        <action
+            android:id="@+id/action_edit_menu_item_to_menu_management"
+            app:destination="@id/staff_menu_management_fragment"
+            app:popUpTo="@id/staff_menu_management_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <!-- ==================== COMMON SCREENS ==================== -->
+
+    <!-- Notifications Settings Screen -->
+    <fragment
+        android:id="@+id/notifications_fragment"
+        android:name="com.example.restaurantapp.ui.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+</navigation>

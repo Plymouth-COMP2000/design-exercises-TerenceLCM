@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_light_background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:title="Reservation Confirmed"
+        app:titleTextColor="@color/md_theme_light_onSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_success"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tv_success_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Headline1"
+                        android:textColor="@color/md_theme_light_primary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_success_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:text="Reservation Confirmed!"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Headline5"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_success_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_success_message"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Your reservation has been successfully confirmed"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_success_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_reservation_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_success">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tv_details_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Reservation Details"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Headline6"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/label_reservation_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Reservation ID:"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_details_title" />
+
+                    <TextView
+                        android:id="@+id/tv_reservation_id"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="RES-123456"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body1"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/label_reservation_id"
+                        app:layout_constraintTop_toTopOf="@id/label_reservation_id" />
+
+                    <TextView
+                        android:id="@+id/label_guest_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Guest Name:"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_reservation_id" />
+
+                    <TextView
+                        android:id="@+id/tv_guest_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="John Doe"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body1"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/label_guest_name"
+                        app:layout_constraintTop_toTopOf="@id/label_guest_name" />
+
+                    <TextView
+                        android:id="@+id/label_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Date:"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_guest_name" />
+
+                    <TextView
+                        android:id="@+id/tv_reservation_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="December 25, 2024"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body1"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/label_date"
+                        app:layout_constraintTop_toTopOf="@id/label_date" />
+
+                    <TextView
+                        android:id="@+id/label_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Time:"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_date" />
+
+                    <TextView
+                        android:id="@+id/tv_reservation_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="7:00 PM"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body1"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/label_time"
+                        app:layout_constraintTop_toTopOf="@id/label_time" />
+
+                    <TextView
+                        android:id="@+id/label_guests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Number of Guests:"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+                        android:textColor="@color/md_theme_light_onSurfaceVariant"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/label_time" />
+
+                    <TextView
+                        android:id="@+id/tv_number_of_guests"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body1"
+                        android:textColor="@color/md_theme_light_onSurface"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/label_guests"
+                        app:layout_constraintTop_toTopOf="@id/label_guests" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_back_to_home"
+                style="@style/Widget.RestaurantApp.Button.Primary"
+                android:layout_marginTop="24dp"
+                android:text="Back to Home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_reservation_details" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

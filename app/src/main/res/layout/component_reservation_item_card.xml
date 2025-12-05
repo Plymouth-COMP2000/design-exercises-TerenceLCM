@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_guest_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Guest Name"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Headline6"
+            android:textColor="@color/md_theme_light_onSurface"
+            app:layout_constraintEnd_toStartOf="@id/tv_status_badge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="John Doe" />
+
+        <TextView
+            android:id="@+id/tv_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:text="Pending"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Caption"
+            android:background="@drawable/bg_status_badge_pending"
+            android:textColor="@color/md_theme_light_onTertiaryContainer"
+            app:layout_constraintEnd_toStartOf="@id/tv_reservation_id"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pending" />
+
+        <TextView
+            android:id="@+id/tv_reservation_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RES-000000"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Caption"
+            android:textColor="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="RES-123456" />
+
+        <TextView
+            android:id="@+id/tv_reservation_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Date and Time"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+            android:textColor="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_guest_name"
+            tools:text="December 25, 2024 at 7:00 PM" />
+
+        <TextView
+            android:id="@+id/tv_number_of_guests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="0 guests"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge.Body2"
+            android:textColor="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reservation_date"
+            tools:text="2 guests" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_quick_action"
+            style="@style/Widget.RestaurantApp.Button.Primary.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Action"
+            app:layout_constraintEnd_toStartOf="@id/btn_cancel"
+            app:layout_constraintTop_toBottomOf="@id/tv_number_of_guests"
+            tools:text="Confirm" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            style="@style/Widget.RestaurantApp.Button.Primary.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_quick_action"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
